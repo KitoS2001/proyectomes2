@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prediccion del cancer de mama</title>
+    <title>Predicción del Cáncer de Mama</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        th, td {
-            text-align: left;
+        body {
+            background-color: #f8f9fa;
         }
         #form-container {
-            max-width: 500px; /* Ajustar ancho máximo */
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px; /* Agregar border-radius para suavizar esquinas */
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
         }
-        #main-content {
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
+        #main-content h5 {
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+        #form-container label {
+            font-weight: bold;
+        }
+        .btn-block {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+        .btn-block:hover {
+            background-color: #218838;
+        }
+        #resultado {
+            font-weight: bold;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-10">
-                <div id="main-content">
-                    <h5 class="mt-4 mb-4">Erik Uriel Vicente Sanchez 20200722</h5>
-                    <h5>Ingenieria en desarrollo y gestion de software</h5>
-                    <h5>Modelo de Regresion</h5>
-                    <h5>Prediccion del cancer de mama</h5>
-                    <div id="form-container">
-                        <form id="formulario" onsubmit="predecirPrecio(event)">
-                            <div class="form-group">
-                                <label for="Clump_Thickness">Ingresa el espesor del grupo (Clump Thickness), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Clump_Thickness" name="Clump_Thickness" min="1" max="10" step="any" required>
-                                <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Uniformity_of_Cell_Size">Ingresa la uniformidad del tamaño de la celula (Uniformity of Cell Size), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Uniformity_of_Cell_Size" name="Uniformity_of_Cell_Size" min="1" max="10" step="any" required>
-                                <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Uniformity_of_Cell_Shape">Ingresa la uniformidad de la forma celular (Uniformity of Cell Shape), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Uniformity_of_Cell_Shape" name="Uniformity_of_Cell_Shape" min="1" max="10" step="any" required>
-                                <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Bare_Nuclei">Ingresar núcleos desnudos (Bare Nuclei), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Bare_Nuclei" name="Bare_Nuclei" min="1" max="10" step="any" required>
-                                <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block">Predecir precio</button>
-                        </form>
-                        <p id="resultado" class="mt-3"></p>
-                    </div>
+                <div id="main-content" class="text-center">
+                    <h5>Erik Uriel Vicente Sanchez 20200722</h5>
+                    <h5>Ingeniería en Desarrollo y Gestión de Software</h5>
+                    <h5>Modelo de Regresión</h5>
+                    <h5>Predicción del Cáncer de Mama</h5>
+                </div>
+                <div id="form-container">
+                    <form id="formulario" onsubmit="predecirPrecio(event)">
+                        <div class="form-group">
+                            <label for="Clump_Thickness">Espesor del grupo (Clump Thickness)(1-10):</label>
+                            <input type="number" class="form-control" id="Clump_Thickness" name="Clump_Thickness" min="1" max="10" step="any" required>
+                            <div class="invalid-feedback">Por favor, ingresa un número válido dentro del rango especificado.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Uniformity_of_Cell_Size">Uniformidad del tamaño de la célula (Uniformity of Cell Size)(1-10):</label>
+                            <input type="number" class="form-control" id="Uniformity_of_Cell_Size" name="Uniformity_of_Cell_Size" min="1" max="10" step="any" required>
+                            <div class="invalid-feedback">Por favor, ingresa un número válido dentro del rango especificado.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Uniformity_of_Cell_Shape">Uniformidad de la forma celular (Uniformity of Cell Shape)(1-10):</label>
+                            <input type="number" class="form-control" id="Uniformity_of_Cell_Shape" name="Uniformity_of_Cell_Shape" min="1" max="10" step="any" required>
+                            <div class="invalid-feedback">Por favor, ingresa un número válido dentro del rango especificado.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Bare_Nuclei">Núcleos desnudos (Bare Nuclei)(1-10):</label>
+                            <input type="number" class="form-control" id="Bare_Nuclei" name="Bare_Nuclei" min="1" max="10" step="any" required>
+                            <div class="invalid-feedback">Por favor, ingresa un número válido dentro del rango especificado.</div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Predecir</button>
+                    </form>
+                    <p id="resultado" class="mt-3"></p>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
