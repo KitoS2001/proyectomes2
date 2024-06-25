@@ -25,7 +25,7 @@ def predict():
         # Obtener los datos enviados en el request
         Clump_Thickness = int(request.form['Clump Thickness'])
         Uniformity_of_Cell_Size = int(request.form['Uniformity of Cell Size'])
-        Uniformity_of_Cell_Shape = int(request.form['Uniformity of Cell_Shape'])
+        Uniformity_of_Cell_Shape = int(request.form['Uniformity of Cell Shape'])
         Bare_Nuclei = int(request.form['Bare Nuclei'])
         
         # Escalar los datos de entrada automáticamente
