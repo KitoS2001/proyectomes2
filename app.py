@@ -23,10 +23,10 @@ def home():
 def predict():
     try:
         # Obtener los datos enviados en el request
-        Clump_Thickness = int(request.form['Clump Thickness'])
-        Uniformity_of_Cell_Size = int(request.form['Uniformity of Cell Size'])
-        Uniformity_of_Cell_Shape = int(request.form['Uniformity of Cell Shape'])
-        Bare_Nuclei = int(request.form['Bare Nuclei'])
+        Clump_Thickness = int(request.form['Clump_Thickness'])
+        Uniformity_of_Cell_Size = int(request.form['Uniformity_of_Cell_Size'])
+        Uniformity_of_Cell_Shape = int(request.form['Uniformity_of_Cell_Shape'])
+        Bare_Nuclei = int(request.form['Bare_Nuclei'])
         
         # Escalar los datos de entrada automáticamente
         input_data = pd.DataFrame([[Clump_Thickness, Uniformity_of_Cell_Size, Uniformity_of_Cell_Shape, Bare_Nuclei]], columns=['Clump Thickness', 'Uniformity of Cell Size', 'Uniformity of Cell Shape', 'Bare Nuclei'])

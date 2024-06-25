@@ -36,23 +36,23 @@
                     <div id="form-container">
                         <form id="formulario" onsubmit="predecirPrecio(event)">
                             <div class="form-group">
-                                <label for="Clump Thickness">Ingresa el espesor del grupo (Clump Thickness), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Clump Thickness" name="Clump Thickness" min="1" max="10" step="any" required>
+                                <label for="Clump_Thickness">Ingresa el espesor del grupo (Clump Thickness), Rango 1 a 10:</label>
+                                <input type="number" class="form-control" id="Clump_Thickness" name="Clump_Thickness" min="1" max="10" step="any" required>
                                 <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
                             </div>
                             <div class="form-group">
-                                <label for="Uniformity of Cell Size">Ingresa la uniformidad del tamaño de la celula (Uniformity of Cell Size), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Uniformity of Cell Size" name="Uniformity of Cell Size" min="1" max="10" step="any" required>
+                                <label for="Uniformity_of_Cell_Size">Ingresa la uniformidad del tamaño de la celula (Uniformity of Cell Size), Rango 1 a 10:</label>
+                                <input type="number" class="form-control" id="Uniformity_of_Cell_Size" name="Uniformity_of_Cell_Size" min="1" max="10" step="any" required>
                                 <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
                             </div>
                             <div class="form-group">
-                                <label for="Uniformity of Cell Shape">Ingresa la uniformidad de la forma celular (Uniformity of Cell Shape), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Uniformity of Cell Shape" name="Uniformity of Cell Shape" min="1" max="10" step="any" required>
+                                <label for="Uniformity_of_Cell_Shape">Ingresa la uniformidad de la forma celular (Uniformity of Cell Shape), Rango 1 a 10:</label>
+                                <input type="number" class="form-control" id="Uniformity_of_Cell_Shape" name="Uniformity_of_Cell_Shape" min="1" max="10" step="any" required>
                                 <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
                             </div>
                             <div class="form-group">
-                                <label for="Bare Nuclei">Ingresar núcleos desnudos (Bare Nuclei), Rango 1 a 10:</label>
-                                <input type="number" class="form-control" id="Bare Nuclei" name="Bare Nuclei" min="1" max="10" step="any" required>
+                                <label for="Bare_Nuclei">Ingresar núcleos desnudos (Bare Nuclei), Rango 1 a 10:</label>
+                                <input type="number" class="form-control" id="Bare_Nuclei" name="Bare_Nuclei" min="1" max="10" step="any" required>
                                 <div class="invalid-feedback">Por favor ingresa un número válido dentro del rango especificado.</div>
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Predecir precio</button>
@@ -70,10 +70,10 @@
     <script>
         function predecirPrecio(event) {
             event.preventDefault();
-            const Clump_Thickness = document.getElementById('Clump Thickness').value;
-            const Uniformity_of_Cell_Size = document.getElementById('Uniformity of Cell Size').value;
-            const Uniformity_of_Cell_Shape = document.getElementById('Uniformity of Cell Shape').value;
-            const Bare_Nuclei = document.getElementById('Bare Nuclei').value;
+            const Clump_Thickness = document.getElementById('Clump_Thickness').value;
+            const Uniformity_of_Cell_Size = document.getElementById('Uniformity_of_Cell_Size').value;
+            const Uniformity_of_Cell_Shape = document.getElementById('Uniformity_of_Cell_Shape').value;
+            const Bare_Nuclei = document.getElementById('Bare_Nuclei').value;
 
             // Validación de números y rangos
             if (!validateNumberRange(Clump_Thickness, 1, 10)) {
@@ -94,14 +94,14 @@
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: `Clump Thickness=${Clump_Thickness}& Uniformity of Cell Size=${Uniformity_of_Cell_Size}&Uniformity of Cell Shape=${Uniformity_of_Cell_Shape}&Bare Nuclei=${Bare_Nuclei}`,
+                body: `Clump_Thickness=${Clump_Thickness}&Uniformity_of_Cell_Size=${Uniformity_of_Cell_Size}&Uniformity_of_Cell_Shape=${Uniformity_of_Cell_Shape}&Bare_Nuclei=${Bare_Nuclei}`,
             })
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
                     document.getElementById('resultado').innerText = 'Error: ' + data.error;
                 } else {
-                    document.getElementById('resultado').innerText = 'La clase del cancer es' + data.categoria;
+                    document.getElementById('resultado').innerText = 'La clase del cancer es ' + data.categoria;
                 }
             })
             .catch(error => {
